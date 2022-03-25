@@ -19,7 +19,6 @@
 # CMD ["node", "/usr/share/nginx/html/server/main.js"]
 #EXPOSE 80
 
-FROM node:14.15.5-slim
-RUN apt-get update && apt-get install -y git
-RUN npm install -g typescript @angular/cli
-# EXPOSE 80 443
+FROM nginx
+COPY ./dist/ /usr/share/nginx/html/
+EXPOSE 80
